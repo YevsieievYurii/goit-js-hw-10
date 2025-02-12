@@ -1,0 +1,17 @@
+.field {
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(30, 204, 210);
+    border-style:dashed;
+    margin-left: 10px;
+}
+
+.timer {
+    display: inline-flex;
+}
+
+.input {
+    display: inline-flexbox;
+    margin: 10px;
+}
