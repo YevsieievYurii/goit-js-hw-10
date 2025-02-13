@@ -6,7 +6,12 @@ import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-
+// !============================================
+// iziToast.success({
+//     title: "Готово!",
+//     message: "Библиотека iziToast подключена!",
+//     position: "topRight",
+// });
 
 
 const input = document.querySelector("#datetime-picker");
@@ -29,8 +34,12 @@ const options = {
         userSelectedDate = selectedDates[0];
 
         if (userSelectedDate <= new Date()) {
-            alert("Please choose a date in the future");
+            // alert("Please choose a date in the future");
             startButton.disabled = true;
+            iziToast.warning({
+                title: 'Caution',
+                message: 'Please choose a date in the future',
+            });
         } else {
             startButton.disabled = false;
         }
@@ -47,12 +56,17 @@ function startTimer() {
 
     countdownInterval = setInterval(() => {
         const currentTime = new Date();
+        
         const timeDiff = userSelectedDate - currentTime;
 
         if (timeDiff <= 0) {
             clearInterval(countdownInterval);
             updateTimer(0, 0, 0, 0);
-            alert("Час вийшов!");
+            // alert("Час вийшов!");
+            iziToast.info({
+                title: 'Hello',
+                message: 'Час вийшов!',
+            });
             input.disabled = false;
             return;
         }
